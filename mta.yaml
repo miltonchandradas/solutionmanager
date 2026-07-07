@@ -26,6 +26,7 @@ modules:
     requires:
       - name: solution_manager-auth
       - name: solution_manager-destination
+      - name: solution_manager-connectivity
 
 resources:
   - name: solution_manager-auth
@@ -45,4 +46,9 @@ resources:
     type: org.cloudfoundry.managed-service
     parameters:
       service: destination
+      service-plan: lite
+  - name: solution_manager-connectivity
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service: connectivity
       service-plan: lite

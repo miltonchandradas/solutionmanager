@@ -1,1 +1,3 @@
 cds import srv/external/SALM_TM_TWL_SRV.xml --as cds
+
+git pull && mbt build && cf deploy mta_archives/solution_manager_1.0.0.mtar
