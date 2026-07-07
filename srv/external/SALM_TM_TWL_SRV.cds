@@ -1,32 +1,8 @@
-/* checksum : a5ac4fe7d157a27203c3a86baea07764 */
+/* checksum : 84a78bd710331415b0ffef0310e3af77 */
 @cds.external : true
 @m.IsDefaultEntityContainer : 'true'
 @sap.supported.formats : 'atom json xlsx'
 service SALM_TM_TWL_SRV {
-  @cds.external : true
-  @cds.persistence.skip : true
-  @sap.creatable : 'false'
-  @sap.updatable : 'false'
-  @sap.deletable : 'false'
-  @sap.pageable : 'false'
-  @sap.content.version : '1'
-  entity TestPackageTileCountSet {
-    @sap.unicode : 'false'
-    @sap.label : 'Unique ID'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    key Id : String(32) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Explanatory text'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    Text : String(100) not null;
-  };
-
   @cds.external : true
   @cds.persistence.skip : true
   @sap.creatable : 'false'
@@ -111,7 +87,7 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    ShortText : String(60);
+    ShortText : String(40);
     @sap.unicode : 'false'
     @sap.label : 'Status'
     @sap.creatable : 'false'
@@ -375,13 +351,18 @@ service SALM_TM_TWL_SRV {
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
-    ShortText : String(60);
+    ShortText : String(40);
+    @sap.unicode : 'false'
+    @sap.label : 'StatusType'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    StatusType : String not null;
     @sap.unicode : 'false'
     @sap.label : 'Status'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
-    @sap.filterable : 'false'
     StatusValue : String(5);
     @sap.unicode : 'false'
     @sap.label : 'Status'
@@ -395,6 +376,7 @@ service SALM_TM_TWL_SRV {
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
+    @sap.filterable : 'false'
     PriorityValue : String(1);
     @sap.unicode : 'false'
     @sap.label : 'Short Txt Prio.'
@@ -407,12 +389,14 @@ service SALM_TM_TWL_SRV {
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
+    @sap.filterable : 'false'
     Processor : String(80);
     @sap.unicode : 'false'
     @sap.label : 'Created By User'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
+    @sap.filterable : 'false'
     LastChangeUser : String(12);
     @sap.unicode : 'false'
     @sap.label : 'LaunchURL'
@@ -447,14 +431,14 @@ service SALM_TM_TWL_SRV {
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
-    MsgReporter : String(10) not null;
+    MsgReporter : String(10);
     @odata.Type : 'Edm.DateTime'
     @sap.unicode : 'false'
     @sap.label : 'Date changed'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
-    CreatedAt : DateTime not null;
+    CreatedAt : DateTime;
   };
 
   @cds.external : true
@@ -633,15 +617,57 @@ service SALM_TM_TWL_SRV {
   @sap.content.version : '1'
   entity TestPackageSet {
     @sap.unicode : 'false'
-    @sap.label : 'Structure ID'
+    @sap.label : 'Test Package Guid'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     key TestPackageId : String(32) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Package ID'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TestPackageName : String(35) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Package Description'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TestPackageTitle : String(100) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Package Priority Text'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TpckPriority : String(60) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Package Responsible Name'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TestPackageResponsible : String(80) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Sequence ID'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TflwID : String(35);
+    @sap.unicode : 'false'
+    @sap.label : 'Test Sequence Description'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TflwDescription : String(100);
     @odata.Type : 'Edm.DateTime'
     @sap.unicode : 'false'
-    @sap.label : 'Plan End Date'
+    @sap.label : 'Test Plan - Planned End Timestamp'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
@@ -649,91 +675,63 @@ service SALM_TM_TWL_SRV {
     PlanPlannedEndDate : DateTime;
     @odata.Type : 'Edm.DateTime'
     @sap.unicode : 'false'
-    @sap.label : 'Plan Start Date'
+    @sap.label : 'Test Plan - Planned Start Timestamp'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     PlanPlannedStartDate : DateTime;
     @sap.unicode : 'false'
-    @sap.label : 'TPCK_PRIORITY'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TpckPriority : String(60) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Name of Test Package'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestPackageName : String(35) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Explanatory text'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestPackageTitle : String(100) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Full Name'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestPackageResponsible : String(80);
-    @sap.unicode : 'false'
-    @sap.label : 'Number'
+    @sap.label : 'Number of Test Cases -> In Error'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     CntRed : Integer;
     @sap.unicode : 'false'
-    @sap.label : 'Number'
+    @sap.label : 'Number of Test Cases -> In Progress'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     CntYellow : Integer;
     @sap.unicode : 'false'
-    @sap.label : 'Number'
+    @sap.label : 'Number of Test Cases -> OK'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     CntGreen : Integer;
     @sap.unicode : 'false'
-    @sap.label : 'Number'
+    @sap.label : 'Number of Test Cases -> Untested'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     CntIgnore : Integer;
     @sap.unicode : 'false'
-    @sap.label : 'Number'
+    @sap.label : 'Number of Test Cases'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     CntSum : Integer;
     @sap.unicode : 'false'
-    @sap.label : 'Structure ID'
+    @sap.label : 'Test Plan ID'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     PlanId : String(35) not null;
     @sap.unicode : 'false'
-    @sap.label : 'Explanatory text'
+    @sap.label : 'Test Plan Description'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     PlanTitle : String(100);
     @sap.unicode : 'false'
-    @sap.label : 'R/2 table'
+    @sap.label : 'Execution Forbidden'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
@@ -741,43 +739,43 @@ service SALM_TM_TWL_SRV {
     PlanExecutionLocked : String(5);
     @odata.Type : 'Edm.DateTime'
     @sap.unicode : 'false'
-    @sap.label : 'Package Start Date'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    PkgPlannedStartDate : DateTime;
-    @odata.Type : 'Edm.DateTime'
-    @sap.unicode : 'false'
-    @sap.label : 'Package End Date'
+    @sap.label : 'Test Package - End Timestamp'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     PkgPlannedEndDate : DateTime;
+    @odata.Type : 'Edm.DateTime'
     @sap.unicode : 'false'
-    @sap.label : 'Test Classification'
+    @sap.label : 'Test Package - Start Timestamp'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    PlanClassification : String(100);
+    PkgPlannedStartDate : DateTime;
     @sap.unicode : 'false'
-    @sap.label : 'Flag Ready4Test'
+    @sap.label : 'Test Plan - Test Classification'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    PlanClassification : String(133);
+    @sap.unicode : 'false'
+    @sap.label : 'Test Plan Responsible Name'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TplnResponsibleName : String(80);
+    @sap.unicode : 'false'
+    @sap.label : 'Ready to Test'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     IsReady4Test : String(1);
-    @sap.unicode : 'false'
-    @sap.label : 'Flag Test Package has Sequence'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    HasSequence : String(1);
-    toTestCaseSet : Association to many TestCaseSet {  };
     toSystemValuesSet : Association to many SystemValuesSet {  };
+    toTestCaseSet : Association to many TestCaseSet {  };
     toTestPackageAttachmentSet : Association to many TestPackageAttachmentSet {  };
     toTestDataSet : Association to many TestDataSetSet {  };
   };
@@ -819,20 +817,6 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     FlagTestFinished : String(1);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Icon'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    Icon : String(40);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Icon Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    IconColorCode : String(10);
     @odata.Type : 'Edm.Byte'
     @sap.unicode : 'false'
     @sap.label : 'Sort Key'
@@ -841,13 +825,6 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     SortKey : Integer;
-    @sap.unicode : 'false'
-    @sap.label : 'Status Description Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TextColorCode : String(10);
   };
 
   @cds.external : true
@@ -874,12 +851,62 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     key TestPackageId : String(32) not null;
     @sap.unicode : 'false'
-    @sap.label : 'Time'
+    @sap.label : 'Note Present'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    LastChangeTime : Time not null;
+    NotePresent : String(1) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Result Mandatory'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ResultMandatory : String(1) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Note Mandatory'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    NoteMandatory : String(1) not null;
+    @odata.Type : 'Edm.DateTime'
+    @sap.unicode : 'false'
+    @sap.label : 'Review Status Date and Time'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ReviewChangeDate : DateTime;
+    @sap.unicode : 'false'
+    @sap.label : 'Source Language'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    SourceLanguage : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Review Text'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ReviewText : String;
+    @sap.unicode : 'false'
+    @sap.label : 'Review Flag'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ReviewFlag : String;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Case Descriptiion'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Description : String not null;
     @odata.Type : 'Edm.DateTime'
     @sap.unicode : 'false'
     @sap.label : 'Changed On'
@@ -945,20 +972,6 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     StatusColor : String(10);
     @sap.unicode : 'false'
-    @sap.label : 'Status Text Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    StatusTextColorCode : String(40);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Icon Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    StatusIconColorCode : String(40);
-    @sap.unicode : 'false'
     @sap.label : 'Char15'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -979,13 +992,6 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     LastChangeUser : String(80);
-    @sap.unicode : 'false'
-    @sap.label : 'Char253'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    DocumentName : String(253);
     @sap.unicode : 'false'
     @sap.label : 'Document URL'
     @sap.creatable : 'false'
@@ -1022,6 +1028,13 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     TestPackageTitle : String(100);
     @sap.unicode : 'false'
+    @sap.label : 'Test Package Priority'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TestPackagePriority : String(15);
+    @sap.unicode : 'false'
     @sap.label : 'Number'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -1057,6 +1070,13 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     TestFinished : String(1);
     @sap.unicode : 'false'
+    @sap.label : 'Test Ended Reset'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TestEndedReset : Boolean not null;
+    @sap.unicode : 'false'
     @sap.label : 'Test Ended Enabled'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -1064,19 +1084,19 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     TestEndedEnabled : String(1);
     @sap.unicode : 'false'
-    @sap.label : 'Comment'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    NoteText : String(50);
-    @sap.unicode : 'false'
     @sap.label : 'Full Name'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     Responsible : String(80);
+    @sap.unicode : 'false'
+    @sap.label : 'Number My Results'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    NumberMyResultsTotal : Integer;
     @sap.unicode : 'false'
     @sap.label : 'Number Results'
     @sap.creatable : 'false'
@@ -1120,33 +1140,12 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     ReadOnly : String(1);
     @sap.unicode : 'false'
-    @sap.label : 'Flag: TestNote'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    HasTestNote : String(1);
-    @sap.unicode : 'false'
     @sap.label : 'Test Classification'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    Classification : String;
-    @sap.unicode : 'false'
-    @sap.label : 'LaunchURL for Testexecution'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestExecLaunchUrl : String;
-    @sap.unicode : 'false'
-    @sap.label : 'Executable'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestExecTitle : String(70);
+    Classification : String(133);
     @sap.unicode : 'false'
     @sap.label : 'Tester User Id'
     @sap.creatable : 'false'
@@ -1174,7 +1173,7 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    SequenceNumber : Integer;
+    SequenceNumber : String;
     @sap.unicode : 'false'
     @sap.label : 'Overall Status'
     @sap.creatable : 'false'
@@ -1203,20 +1202,6 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     OverAllStatusColor : String(10);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Text Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    OverAllStatusTextColorCode : String(40);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Icon Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    OverAllStatusIconColorCode : String(40);
     @sap.unicode : 'false'
     @sap.label : 'Current Tester'
     @sap.creatable : 'false'
@@ -1316,19 +1301,26 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     TSNumberStepsTotal : Integer;
     @sap.unicode : 'false'
-    @sap.label : 'Test Case Access Allowed'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TcAccessAllowed : Boolean not null;
-    @sap.unicode : 'false'
     @sap.label : 'Comment'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     Comment : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'TS Execution Id'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ExecutionId : String(32);
+    @sap.unicode : 'false'
+    @sap.label : 'TS Run Id'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    RunId : Integer;
     toDefectSet : Association to many DefectSet {  };
     toTestCaseResultSet : Association to many TestCaseResultSet {  };
     toTestCaseNoteSet : Association to many TestCaseNoteSet {  };
@@ -1341,17 +1333,18 @@ service SALM_TM_TWL_SRV {
     toTSExecution : Association to many TestCaseTSExecutionSet {  };
   } actions {
     function AssignDefectToTestCase(
-      DefectId : String(24),
-      ExecutionId : String(32),
+      StepId : Integer,
       RunId : Integer,
-      StepId : Integer
+      ExecutionId : String(32),
+      DefectId : String(24)
     ) returns TestCaseSet;
     function UnassignDefectFromTestCase(
-      DefectId : String(24),
-      ExecutionId : String(32),
+      StepId : Integer,
       RunId : Integer,
-      StepId : Integer
+      ExecutionId : String(32),
+      DefectId : String(24)
     ) returns TestCaseSet;
+    function CheckTestEnded() returns TestCaseSet;
   };
 
   @cds.external : true
@@ -1376,6 +1369,34 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     key PartnerId : String(10) not null;
+    @sap.unicode : 'false'
+    @sap.label : '-'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    OpenDefDialogOnError : String(1) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Indicator'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    OpenTestSteps : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Indicator'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    FChangeDocActive : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Indicator'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    HideObjectList : Boolean not null;
     @sap.unicode : 'false'
     @sap.label : 'Full Name'
     @sap.creatable : 'false'
@@ -1641,13 +1662,10 @@ service SALM_TM_TWL_SRV {
       Title : String(75)
     ) returns many TestCaseResultSet;
     function CreateTestResultFromURL(
-      TestResultURL : String,
-      Language : String(2),
+      Title : String(75),
       DocStatus : String(15),
-      Title : String(75)
-    ) returns many TestCaseResultSet;
-    function CreateMultipleTestCaseResults(
-      NumberOfIds : Integer
+      Language : String(2),
+      TestResultURL : String
     ) returns many TestCaseResultSet;
     function CreateTestResultFromTemplate(
       Title : String(75),
@@ -2026,23 +2044,23 @@ service SALM_TM_TWL_SRV {
     NextStatusValues : Association to many TestCaseNoteStatusValuesSet {  };
   } actions {
     function CreateTestNoteFromTemplate(
+      Overwrite : Boolean,
       Language : String(2),
       DocStatus : String(15),
-      Title : String(75),
-      Overwrite : Boolean
+      Title : String(75)
     ) returns TestCaseNoteSet;
     function CreateTestNoteFromTestDocument(
-      Title : String(75),
-      Overwrite : Boolean
+      Overwrite : Boolean,
+      Title : String(75)
     ) returns TestCaseNoteSet;
     function UnlockTestNote() returns TestCaseNoteSet;
     function CancelSignatureProcessTestNote() returns TestCaseNoteSet;
     function CreateTestNoteFromURL(
-      TestNoteUrl : String,
-      DocStatus : String(15),
-      Language : String(2),
+      Overwrite : Boolean,
       Title : String(75),
-      Overwrite : Boolean
+      Language : String(2),
+      DocStatus : String(15),
+      TestNoteUrl : String
     ) returns TestCaseNoteSet;
   };
 
@@ -2228,6 +2246,13 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     key TestPackageId : String(32) not null;
     @sap.unicode : 'false'
+    @sap.label : 'Text'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Descr : String(40) not null;
+    @sap.unicode : 'false'
     @sap.label : 'Client'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -2298,7 +2323,7 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    ShortText : String(60) not null;
+    ShortText : String(40) not null;
     @sap.unicode : 'false'
     @sap.label : 'Step ID'
     @sap.creatable : 'false'
@@ -2368,28 +2393,7 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    CrmCat01 : String;
-    @sap.unicode : 'false'
-    @sap.label : 'String'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    CrmCat02 : String;
-    @sap.unicode : 'false'
-    @sap.label : 'String'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    CrmCat03 : String;
-    @sap.unicode : 'false'
-    @sap.label : 'String'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    CrmCat04 : String;
+    CrmCat : String(32);
     @sap.unicode : 'false'
     @sap.label : 'Name of SAPSys.'
     @sap.creatable : 'false'
@@ -2439,6 +2443,13 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     DefectId : String(24);
+    @sap.unicode : 'false'
+    @sap.label : 'DefectCategory'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefCatgy : String(3) not null;
   };
 
   @cds.external : true
@@ -2463,6 +2474,28 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     key TestPackageId : String(32) not null;
+    @odata.Type : 'Edm.DateTime'
+    @sap.unicode : 'false'
+    @sap.label : 'Time Stamp'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Fdate : DateTime not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Created At'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    CreatedAt : String(14) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Language'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    LanguageKey : String(2) not null;
     @sap.unicode : 'false'
     @sap.label : 'Explanatory text'
     @sap.creatable : 'false'
@@ -2633,6 +2666,48 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     key TestCaseId : String(32) not null;
     @sap.unicode : 'false'
+    @sap.label : 'SupportTeamPF'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    SupTeamPF : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'MessageProcessorPF'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    MsgProcPF : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Unique ID'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    MLCGuid : String(32) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Indicator'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    RichTextEnabled : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Execution ID'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ExecutionId : String(32);
+    @sap.unicode : 'false'
+    @sap.label : 'Step ID'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StepId : Integer;
+    @sap.unicode : 'false'
     @sap.label : 'Title'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -2659,7 +2734,7 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    Processor : String(12);
+    Processor : String;
     @sap.unicode : 'false'
     @sap.label : 'BusinessPartner'
     @sap.creatable : 'false'
@@ -2812,6 +2887,84 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     ComponentRequired : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'DefectCategory'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefectCategory : String(3) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'DefectCategoryVisible'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefectCategoryVisible : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'DefectCategoryEnabled'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefectCategoryEnabled : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'DefectCategoryRequired'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefectCategoryRequired : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'MLCEnabled'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    MLCEnabled : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'MLCVisible'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    MLCVisible : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'MLCRequired'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    MLCRequired : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'SysIdEnabled'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    SysIdEnabled : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'SysIdVisible'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    SysIdVisible : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'SysIdRequired'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    SysIdRequired : Boolean not null;
+    @odata.Type : 'Edm.Byte'
+    @sap.unicode : 'false'
+    @sap.label : 'MLCLevel'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    MLCLevel : Integer not null;
   };
 
   @cds.external : true
@@ -2970,6 +3123,13 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     key TestCaseId : String(32) not null;
     @sap.unicode : 'false'
+    @sap.label : 'Single-Character Flag'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    AttcAll : String(1) not null;
+    @sap.unicode : 'false'
     @sap.label : 'Language'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -3073,13 +3233,6 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     FlagEvidenceRequired : String(1);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Icon'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    Icon : String(40);
   };
 
   @cds.external : true
@@ -3140,6 +3293,13 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     Etag : String(40) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Step Index'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StepIndex : Integer not null;
     @sap.unicode : 'false'
     @sap.label : 'Label'
     @sap.creatable : 'false'
@@ -3437,7 +3597,7 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    ShortText : String(60);
+    ShortText : String(40);
     @sap.unicode : 'false'
     @sap.label : 'Status'
     @sap.creatable : 'false'
@@ -3746,6 +3906,13 @@ service SALM_TM_TWL_SRV {
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
+    OpenDefDia : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Indicator'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
     DisplayOthersTres : Boolean not null;
     @sap.unicode : 'false'
     @sap.label : 'Indicator'
@@ -3761,6 +3928,13 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     AttachTnotByTdoc : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Indicator'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    OpenDefDiaOw : Boolean not null;
     @sap.unicode : 'false'
     @sap.label : 'Attach Document'
     @sap.creatable : 'false'
@@ -4258,31 +4432,6 @@ service SALM_TM_TWL_SRV {
   @sap.pageable : 'false'
   @sap.addressable : 'false'
   @sap.content.version : '1'
-  entity TestPlanValuesSet {
-    @sap.unicode : 'false'
-    @sap.label : 'Filter Field Id'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    key FilterFieldId : String(300) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Filter Field Text'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    FilterFieldText : String(255) not null;
-  };
-
-  @cds.external : true
-  @cds.persistence.skip : true
-  @sap.creatable : 'false'
-  @sap.updatable : 'false'
-  @sap.deletable : 'false'
-  @sap.pageable : 'false'
-  @sap.addressable : 'false'
-  @sap.content.version : '1'
   entity TestCaseTSStepSet {
     @sap.unicode : 'false'
     @sap.label : 'Structure ID'
@@ -4319,6 +4468,13 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     key StepId : Integer not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Evidence Mime Type'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    EvidenceMimeType : String(100) not null;
     @odata.Type : 'Edm.DateTime'
     @odata.Precision : 7
     @sap.unicode : 'false'
@@ -4378,34 +4534,6 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     Url : String(2048);
     @sap.unicode : 'false'
-    @sap.label : 'Test Plan ID'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    PlanId : String(35);
-    @sap.unicode : 'false'
-    @sap.label : 'Explanatory text'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    PlanTitle : String(75);
-    @sap.unicode : 'false'
-    @sap.label : 'Test Plan ID'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestPackageName : String(35);
-    @sap.unicode : 'false'
-    @sap.label : 'Explanatory text'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    TestPackageTitle : String(75);
-    @sap.unicode : 'false'
     @sap.label : 'Flag: Ready for Test'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -4420,26 +4548,12 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     ReadOnly : String(1);
     @sap.unicode : 'false'
-    @sap.label : 'Number'
+    @sap.label : 'Parent ID Index'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
-    DefectTotals : Integer;
-    @sap.unicode : 'false'
-    @sap.label : 'Number'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    DefectActives : Integer;
-    @sap.unicode : 'false'
-    @sap.label : 'Number'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    AttachmentsTotal : Integer;
+    ParentIdIndex : Integer not null;
     @sap.unicode : 'false'
     @sap.label : 'Step ID'
     @sap.creatable : 'false'
@@ -4518,33 +4632,12 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     StatusChangedBy : String(80);
     @sap.unicode : 'false'
-    @sap.label : 'Status Icon'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    StatusIcon : String(40);
-    @sap.unicode : 'false'
     @sap.label : 'Status Color Code'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     StatusColorCode : String(40);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Icon Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    StatusIconColorCode : String(40);
-    @sap.unicode : 'false'
-    @sap.label : 'Status Text Color Code'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    StatusTextColorCode : String(40);
     @sap.unicode : 'false'
     @sap.label : 'Object ID'
     @sap.creatable : 'false'
@@ -4771,8 +4864,6 @@ service SALM_TM_TWL_SRV {
     StatusText : String(40);
     toExecChangeDoc : Association to many TestCaseChangeDocSet {  };
     toTSRun : Association to many TestCaseTSRunSet {  };
-  } actions {
-    function CreateTSExecution() returns TestCaseTSExecutionSet;
   };
 
   @cds.external : true
@@ -4812,6 +4903,13 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     key RunId : Integer not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Boolean Variable (X=True, -=False, Space=Unknown)'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    PickableFromTemplate : String(1) not null;
     @sap.unicode : 'false'
     @sap.label : 'TS Run Label'
     @sap.creatable : 'false'
@@ -4927,45 +5025,6 @@ service SALM_TM_TWL_SRV {
     blob : LargeBinary;
   } actions {
     function DeleteTSStepEvidence() returns TestCaseTSStepSet;
-  };
-
-  @cds.external : true
-  @cds.persistence.skip : true
-  @sap.creatable : 'false'
-  @sap.updatable : 'false'
-  @sap.deletable : 'false'
-  @sap.pageable : 'false'
-  @sap.addressable : 'false'
-  @sap.content.version : '1'
-  entity DefectCreatedByUserListSet {
-    @sap.unicode : 'false'
-    @sap.label : 'User'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    key UserId : String(12) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Full Name'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    FullName : String(80) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'Last name'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    NameLast : String(40) not null;
-    @sap.unicode : 'false'
-    @sap.label : 'First name'
-    @sap.creatable : 'false'
-    @sap.updatable : 'false'
-    @sap.sortable : 'false'
-    @sap.filterable : 'false'
-    NameFirst : String(40) not null;
   };
 
   @cds.external : true
@@ -5141,6 +5200,28 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     key Id : String(32) not null;
     @sap.unicode : 'false'
+    @sap.label : 'Single-Character Flag'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    AttcAll : String(1) not null;
+    @odata.Type : 'Edm.DateTime'
+    @sap.unicode : 'false'
+    @sap.label : 'Time Stamp'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Fdate : DateTime not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Created At'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    CreatedAt : String(14) not null;
+    @sap.unicode : 'false'
     @sap.label : 'Description'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
@@ -5148,12 +5229,26 @@ service SALM_TM_TWL_SRV {
     @sap.filterable : 'false'
     Title : String(100) not null;
     @sap.unicode : 'false'
+    @sap.label : 'Time'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Ftime : Time not null;
+    @sap.unicode : 'false'
     @sap.label : 'Changed by'
     @sap.creatable : 'false'
     @sap.updatable : 'false'
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     Fuser : String(12) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Language'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    LanguageKey : String(2) not null;
     @sap.unicode : 'false'
     @sap.label : 'Full Name'
     @sap.creatable : 'false'
@@ -5224,6 +5319,347 @@ service SALM_TM_TWL_SRV {
     @sap.sortable : 'false'
     @sap.filterable : 'false'
     RunId : Integer not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity DefectCategorySet {
+    @sap.unicode : 'false'
+    @sap.label : 'CategoryId'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key DefCatId : String(3) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'CategoryDescription'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefCatDescription : String not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity BPListSendEmailSet {
+    @sap.unicode : 'false'
+    @sap.label : 'BusinessPartner'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key BpId : String(10) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Character field, length 32'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TstaRoot : String(32) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'BP_NAME'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    BpName : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'BP_EMAIL'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    BpEmail : String not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity SendEmailSet {
+    @sap.unicode : 'false'
+    @sap.label : 'Character field, length 32'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key TstaRoot : String(32) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'CONTENT'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Content : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'SUBJECT'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Subject : String not null;
+    @sap.unicode : 'false'
+    @sap.label : 'URL_LINK'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    UrlLink : String not null;
+    EmailToRecipient : Association to many BusinessPartnerIdsSet {  };
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity BusinessPartnerIdsSet {
+    @sap.unicode : 'false'
+    @sap.label : 'BusinessPartner'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key BpId : String(10) not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity TestCaseCustomizingStatusSet {
+    @sap.unicode : 'false'
+    @sap.label : 'Status'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key Status : String(10) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Language'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Langu : String(2) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Valuation'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StaAction : String(10) not null;
+    @odata.Type : 'Edm.Byte'
+    @sap.unicode : 'false'
+    @sap.label : 'Sort field'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    SortKey : Integer not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Not Selectable'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TwbStatusNoF4 : String(1) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Test Ended'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    TestFinished : String(1) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Status description'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Text : String(40) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Single-Character Flag'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    EvidenceNeeded : String(1) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Status description'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StatusIcon : String(40) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Valuation'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StatusTextColor : String(10) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Valuation'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StatusIconColor : String(10) not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity TestStepCustomizingStatusSet {
+    @sap.unicode : 'false'
+    @sap.label : 'Status'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key Status : String(10) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Default Status'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    DefaultStatus : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Evidence Flag'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    EvidenceReq : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Color of Status'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Color : String(10) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Language'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Lang : String(2) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Label'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StatusLabel : String(60) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Finish Step'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    Finish : Boolean not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Not selectable'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    NotSelectable : Boolean not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity DefectStatusSet {
+    @sap.unicode : 'false'
+    @sap.label : 'Transaction Type'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key ProcessType : String(4) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'User status'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key Status : String(5) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Description'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    ProcessTypeText : String(40) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Status'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    StatusText : String(30) not null;
+  };
+
+  @cds.external : true
+  @cds.persistence.skip : true
+  @sap.creatable : 'false'
+  @sap.updatable : 'false'
+  @sap.deletable : 'false'
+  @sap.pageable : 'false'
+  @sap.content.version : '1'
+  entity LanguageKeysSet {
+    @sap.unicode : 'false'
+    @sap.label : 'Language'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key Spras : String(2) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Lang. (ISO)'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key Laiso : String(2) not null;
+    @sap.unicode : 'false'
+    @sap.label : 'Name'
+    @sap.creatable : 'false'
+    @sap.updatable : 'false'
+    @sap.sortable : 'false'
+    @sap.filterable : 'false'
+    key Sptxt : String(16) not null;
   };
 
   @cds.external : true

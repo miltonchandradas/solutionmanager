@@ -3,13 +3,6 @@
     xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
     <edmx:DataServices m:DataServiceVersion="2.0">
         <Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="SALM_TM_TWL_SRV" xml:lang="en" sap:schema-version="1">
-            <EntityType Name="TestPackageTileCount" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="Id"/>
-                </Key>
-                <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Unique ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Explanatory text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
             <EntityType Name="Defect" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="DefectId"/>
@@ -24,7 +17,7 @@
                 <Property Name="MsgReporterName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DefectId" Type="Edm.String" Nullable="false" MaxLength="24" sap:unicode="false" sap:label="Text 24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Type" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Message Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ShortText" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShortText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusValue" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PriorityValue" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -73,19 +66,20 @@
                 <Property Name="MsgReporterName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DefectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="DefectId" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="Type" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Defect Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="ShortText" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="StatusValue" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShortText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="StatusType" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="StatusValue" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
                 <Property Name="StatusText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PriorityValue" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="PriorityValue" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PriorityText" Type="Edm.String" MaxLength="20" sap:unicode="false" sap:label="Short Txt Prio." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="Processor" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="LastChangeUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By User" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="Processor" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LastChangeUser" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Created By User" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LaunchUrl" Type="Edm.String" sap:unicode="false" sap:label="LaunchURL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="TestPackageId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestCaseId" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="TestCaseId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LastChangeUserFullname" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="MsgReporter" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Incident Reporter" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
-                <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Date changed" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="MsgReporter" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Incident Reporter" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Date changed" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
             </EntityType>
             <EntityType Name="TestCaseNoteDocument" m:HasStream="true" sap:content-version="1">
                 <Key>
@@ -120,28 +114,30 @@
                 <Key>
                     <PropertyRef Name="TestPackageId"/>
                 </Key>
-                <Property Name="PlanPlannedEndDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Plan End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Plan Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TpckPriority" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="TPCK_PRIORITY" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestPackageName" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Name of Test Package" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestPackageTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Explanatory text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestPackageResponsible" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CntRed" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CntYellow" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CntGreen" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CntIgnore" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CntSum" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanTitle" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Explanatory text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanExecutionLocked" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="R/2 table" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PkgPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Package Start Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PkgPlannedEndDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Package End Date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanClassification" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Test Classification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IsReady4Test" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag Ready4Test" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="HasSequence" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag Test Package has Sequence" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <NavigationProperty Name="toTestCaseSet" Relationship="SALM_TM_TWL_SRV.Assoc_TestCase_TestPackage" FromRole="FromRole_Assoc_TestCase_TestPackage" ToRole="ToRole_Assoc_TestCase_TestPackage"/>
+                <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Package Guid" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TestPackageName" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Test Package ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TestPackageTitle" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Test Package Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TpckPriority" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Test Package Priority Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TestPackageResponsible" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Test Package Responsible Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TflwID" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Test Sequence ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TflwDescription" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Test Sequence Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlanPlannedEndDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Test Plan - Planned End Timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlanPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Test Plan - Planned Start Timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CntRed" Type="Edm.Int32" sap:unicode="false" sap:label="Number of Test Cases -> In Error" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CntYellow" Type="Edm.Int32" sap:unicode="false" sap:label="Number of Test Cases -> In Progress" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CntGreen" Type="Edm.Int32" sap:unicode="false" sap:label="Number of Test Cases -> OK" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CntIgnore" Type="Edm.Int32" sap:unicode="false" sap:label="Number of Test Cases -> Untested" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CntSum" Type="Edm.Int32" sap:unicode="false" sap:label="Number of Test Cases" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlanId" Type="Edm.String" Nullable="false" MaxLength="35" sap:unicode="false" sap:label="Test Plan ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlanTitle" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Test Plan Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlanExecutionLocked" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Execution Forbidden" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PkgPlannedEndDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Test Package - End Timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PkgPlannedStartDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Test Package - Start Timestamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlanClassification" Type="Edm.String" MaxLength="133" sap:unicode="false" sap:label="Test Plan - Test Classification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TplnResponsibleName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Test Plan Responsible Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsReady4Test" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Ready to Test" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <NavigationProperty Name="toSystemValuesSet" Relationship="SALM_TM_TWL_SRV.Assoc_SystemList_TestPackage" FromRole="FromRole_Assoc_SystemList_TestPackage" ToRole="ToRole_Assoc_SystemList_TestPackage"/>
+                <NavigationProperty Name="toTestCaseSet" Relationship="SALM_TM_TWL_SRV.Assoc_TestCase_TestPackage" FromRole="FromRole_Assoc_TestCase_TestPackage" ToRole="ToRole_Assoc_TestCase_TestPackage"/>
                 <NavigationProperty Name="toTestPackageAttachmentSet" Relationship="SALM_TM_TWL_SRV.Assoc_AttachmentList_TestPackage" FromRole="FromRole_Assoc_AttachmentList_TestPackage" ToRole="ToRole_Assoc_AttachmentList_TestPackage"/>
                 <NavigationProperty Name="toTestDataSet" Relationship="SALM_TM_TWL_SRV.Assoc_TestDataSet_TestPackage" FromRole="FromRole_Assoc_TestDataSet_TestPackage" ToRole="ToRole_Assoc_TestDataSet_TestPackage"/>
             </EntityType>
@@ -153,17 +149,21 @@
                 <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ColorCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Status Color" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FlagTestFinished" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Test Ended" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Icon" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Icon" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="IconColorCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Status Icon Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="SortKey" Type="Edm.Byte" sap:unicode="false" sap:label="Sort Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TextColorCode" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Status Description Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="TestCase" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="TestCaseId"/>
                     <PropertyRef Name="TestPackageId"/>
                 </Key>
-                <Property Name="LastChangeTime" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotePresent" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Note Present" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ResultMandatory" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Result Mandatory" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoteMandatory" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Note Mandatory" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewChangeDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Review Status Date and Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SourceLanguage" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Source Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewText" Type="Edm.String" sap:unicode="false" sap:label="Review Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ReviewFlag" Type="Edm.String" sap:unicode="false" sap:label="Review Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Description" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Test Case Descriptiion" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LastChangeDate" Type="Edm.DateTime" Precision="0" sap:unicode="false" sap:label="Changed On" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Label" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Version Label" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -174,46 +174,40 @@
                 <Property Name="StatusValue" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusColor" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Valuation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="StatusTextColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Text Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="StatusIconColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Icon Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Priority" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Char15" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LastChangeUserId" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="User ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LastChangeUser" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DocumentName" Type="Edm.String" MaxLength="253" sap:unicode="false" sap:label="Char253" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DocumentURL" Type="Edm.String" sap:unicode="false" sap:label="Document URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PlanId" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Test Plan Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PlanTitle" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Test Plan Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Package Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageName" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Test Package Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageTitle" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Test Package Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TestPackagePriority" Type="Edm.String" MaxLength="15" sap:unicode="false" sap:label="Test Package Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NumberDefectsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NumberDefectsOpen" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NodePath" Type="Edm.String" sap:unicode="false" sap:label="NodePath" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NodePathUrl" Type="Edm.String" sap:unicode="false" sap:label="NodePath URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestFinished" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Test Ended" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TestEndedReset" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Test Ended Reset" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestEndedEnabled" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Test Ended Enabled" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NoteText" Type="Edm.String" MaxLength="50" sap:unicode="false" sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Responsible" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NumberMyResultsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number My Results" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NumberResultsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number Results" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NumberTestPackageAttachmentsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number Test Package Attachments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NumberTestCaseAttachmentsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number Test Case Attachments" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="NumberTestDataSetsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number Test Data Sets" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ReadyForTest" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag: Ready for Test" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ReadOnly" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag: ReadOnly" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="HasTestNote" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag: TestNote" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Classification" Type="Edm.String" sap:unicode="false" sap:label="Test Classification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestExecLaunchUrl" Type="Edm.String" sap:unicode="false" sap:label="LaunchURL for Testexecution" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestExecTitle" Type="Edm.String" MaxLength="70" sap:unicode="false" sap:label="Executable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Classification" Type="Edm.String" MaxLength="133" sap:unicode="false" sap:label="Test Classification" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TesterId" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Tester User Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TesterFullname" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Tester Fullname" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="SequenceId" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Sequence Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="SequenceNumber" Type="Edm.Int32" sap:unicode="false" sap:label="Sequence Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SequenceNumber" Type="Edm.String" sap:unicode="false" sap:label="Sequence Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="OverAllStatusValue" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Overall Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="E2EDocumentUrl" Type="Edm.String" sap:unicode="false" sap:label="E2E Document Url" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="OverAllStatusText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Overall Status description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="OverAllStatusColor" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Overall Status Color" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="OverAllStatusTextColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Text Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="OverAllStatusIconColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Icon Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CurrentTesterFullName" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Current Tester" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CurrentStep" Type="Edm.String" MaxLength="253" sap:unicode="false" sap:label="Current Step" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TSDescription" Type="Edm.String" sap:unicode="false" sap:label="TestStep: Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -228,8 +222,9 @@
                 <Property Name="TstaLogUrl" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Log URL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TcExecuUrl" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Execution Url" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TSNumberStepsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="TestStep: Number of Steps" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TcAccessAllowed" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Test Case Access Allowed" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Comment" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Comment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ExecutionId" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="TS Execution Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RunId" Type="Edm.Int32" sap:unicode="false" sap:label="TS Run Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <NavigationProperty Name="toDefectSet" Relationship="SALM_TM_TWL_SRV.Assoc_Defect_TestCase" FromRole="FromRole_Assoc_Defect_TestCase" ToRole="ToRole_Assoc_Defect_TestCase"/>
                 <NavigationProperty Name="toTestCaseResultSet" Relationship="SALM_TM_TWL_SRV.Assoc_TestCaseResult_TestCase" FromRole="FromRole_Assoc_TestCaseResult_TestCase" ToRole="ToRole_Assoc_TestCaseResult_TestCase"/>
                 <NavigationProperty Name="toTestCaseNoteSet" Relationship="SALM_TM_TWL_SRV.Assoc_TestCaseNote_TestCase" FromRole="FromRole_Assoc_TestCaseNote_TestCase" ToRole="ToRole_Assoc_TestCaseNote_TestCase"/>
@@ -246,7 +241,11 @@
                     <PropertyRef Name="UserId"/>
                     <PropertyRef Name="PartnerId"/>
                 </Key>
+                <Property Name="OpenDefDialogOnError" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="-" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OpenTestSteps" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FChangeDocActive" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="UserId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HideObjectList" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PartnerId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="User Partner Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Fullname" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="VDefectTransactionType" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Defect Transaction Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -401,6 +400,7 @@
                     <PropertyRef Name="TestPackageId"/>
                 </Key>
                 <Property Name="SystemId" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="SystemId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Descr" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="TestPackageId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="InstallationNumber" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Installation Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -416,7 +416,7 @@
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExecRun" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Run" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ShortText" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShortText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StepId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Step ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -426,10 +426,7 @@
                 <Property Name="Subject" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Topic, Area" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Reporter" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Last changed by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ReporterBP" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CrmCat01" Type="Edm.String" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CrmCat02" Type="Edm.String" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CrmCat03" Type="Edm.String" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="CrmCat04" Type="Edm.String" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CrmCat" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Sysid" Type="Edm.String" Nullable="false" MaxLength="8" sap:unicode="false" sap:label="Name of SAPSys." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Mandt" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Client" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Instn" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Installation No" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -437,12 +434,16 @@
                 <Property Name="MsgGuid" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="Unique ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FAttachEvidence" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Flag to attach evidence" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DefectId" Type="Edm.String" MaxLength="24" sap:unicode="false" sap:label="Text 24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefCatgy" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="DefectCategory" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="TestPackageAttachment" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="TestPackageAttachmentId"/>
                     <PropertyRef Name="TestPackageId"/>
                 </Key>
+                <Property Name="Fdate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Created At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageAttachmentId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Title" Type="Edm.String" MaxLength="100" sap:unicode="false" sap:label="Explanatory text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Changed by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -477,13 +478,19 @@
                     <PropertyRef Name="TestPackageId"/>
                     <PropertyRef Name="TestCaseId"/>
                 </Key>
+                <Property Name="SupTeamPF" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SupportTeamPF" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MsgProcPF" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="MessageProcessorPF" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MLCGuid" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Unique ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="RichTextEnabled" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ProcType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Transaction Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ExecutionId" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="Execution ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StepId" Type="Edm.Int32" sap:unicode="false" sap:label="Step ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LongText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Priority" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Processor" Type="Edm.String" MaxLength="12" sap:unicode="false" sap:label="Message Processor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Processor" Type="Edm.String" sap:unicode="false" sap:label="Message Processor" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ProcessorBP" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="SupportTeam" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="SupportTeamBP" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -506,6 +513,17 @@
                 <Property Name="ComponentVisible" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ComponentEnabled" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ComponentRequired" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefectCategory" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="DefectCategory" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefectCategoryVisible" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="DefectCategoryVisible" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefectCategoryEnabled" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="DefectCategoryEnabled" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefectCategoryRequired" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="DefectCategoryRequired" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MLCEnabled" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="MLCEnabled" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MLCVisible" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="MLCVisible" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MLCRequired" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="MLCRequired" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SysIdEnabled" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="SysIdEnabled" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SysIdVisible" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="SysIdVisible" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SysIdRequired" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="SysIdRequired" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MLCLevel" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="MLCLevel" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="TestDataSet" sap:content-version="1">
                 <Key>
@@ -540,6 +558,7 @@
                     <PropertyRef Name="TestPackageId"/>
                     <PropertyRef Name="TestCaseId"/>
                 </Key>
+                <Property Name="AttcAll" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExecutionId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Execution ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -563,7 +582,6 @@
                 <Property Name="ColorCode" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Valuation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FlagTestFinished" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Test Ended" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FlagEvidenceRequired" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Evidence Required" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="Icon" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Icon" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="TestCaseTSRunCustField" sap:content-version="1">
                 <Key>
@@ -575,6 +593,7 @@
                     <PropertyRef Name="FieldNumber"/>
                 </Key>
                 <Property Name="Etag" Type="Edm.String" Nullable="false" MaxLength="40" ConcurrencyMode="Fixed" sap:unicode="false" sap:label="Hash" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StepIndex" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Step Index" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExecutionId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Execution ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -639,7 +658,7 @@
                 <Property Name="MsgReporterName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DefectId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Text 24" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Type" Type="Edm.String" MaxLength="6" sap:unicode="false" sap:label="Message Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="ShortText" Type="Edm.String" MaxLength="60" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ShortText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="ShortTextNotif." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusValue" Type="Edm.String" MaxLength="5" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusText" Type="Edm.String" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="PriorityValue" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -703,9 +722,11 @@
                     <PropertyRef Name="Key"/>
                 </Key>
                 <Property Name="Key" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="NodeID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OpenDefDia" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DisplayOthersTres" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="DisplayComments" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="AttachTnotByTdoc" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Attach Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="OpenDefDiaOw" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Indicator" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="AttachTnotByTempl" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Attach Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="AttachTnotByUpload" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Attach Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="AttachTnotByUrl" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Attach Document" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -812,13 +833,6 @@
                 <Property Name="FilterFieldId" Type="Edm.String" Nullable="false" MaxLength="300" sap:unicode="false" sap:label="Field Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FilterFieldText" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Field Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
-            <EntityType Name="TestPlanValues" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="FilterFieldId"/>
-                </Key>
-                <Property Name="FilterFieldId" Type="Edm.String" Nullable="false" MaxLength="300" sap:unicode="false" sap:label="Filter Field Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="FilterFieldText" Type="Edm.String" Nullable="false" MaxLength="255" sap:unicode="false" sap:label="Filter Field Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
             <EntityType Name="TestCaseTSStep" sap:content-version="1">
                 <Key>
                     <PropertyRef Name="TestCaseId"/>
@@ -827,6 +841,7 @@
                     <PropertyRef Name="RunId"/>
                     <PropertyRef Name="StepId"/>
                 </Key>
+                <Property Name="EvidenceMimeType" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Evidence Mime Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusChangedAt" Type="Edm.DateTime" Precision="7" sap:unicode="false" sap:label="Status changed At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Etag" Type="Edm.String" Nullable="false" MaxLength="40" ConcurrencyMode="Fixed" sap:unicode="false" sap:label="Hash Value" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -836,19 +851,13 @@
                 <Property Name="Type" Type="Edm.String" MaxLength="4" sap:unicode="false" sap:label="Node Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="LastChangeUser" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Url" Type="Edm.String" MaxLength="2048" sap:unicode="false" sap:label="string2048" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanId" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Test Plan ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="PlanTitle" Type="Edm.String" MaxLength="75" sap:unicode="false" sap:label="Explanatory text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestPackageName" Type="Edm.String" MaxLength="35" sap:unicode="false" sap:label="Test Plan ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="TestPackageTitle" Type="Edm.String" MaxLength="75" sap:unicode="false" sap:label="Explanatory text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ReadyForTest" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag: Ready for Test" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ReadOnly" Type="Edm.String" MaxLength="1" sap:unicode="false" sap:label="Flag: ReadOnly" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DefectTotals" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="DefectActives" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="AttachmentsTotal" Type="Edm.Int32" sap:unicode="false" sap:label="Number" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExecutionId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Execution ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="RunId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Run" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StepId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Step ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ParentIdIndex" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Parent ID Index" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ParentId" Type="Edm.Int32" sap:unicode="false" sap:label="Step ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StepIndex" Type="Edm.Int32" sap:unicode="false" sap:label="Step Index" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Executable" Type="Edm.String" sap:unicode="false" sap:label="Executable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -860,10 +869,7 @@
                 <Property Name="Status" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusText" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusChangedBy" Type="Edm.String" MaxLength="80" sap:unicode="false" sap:label="Status Changed By FullName" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="StatusIcon" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Icon" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="StatusColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="StatusIconColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Icon Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="StatusTextColorCode" Type="Edm.String" MaxLength="40" sap:unicode="false" sap:label="Status Text Color Code" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Objid" Type="Edm.String" MaxLength="32" sap:unicode="false" sap:label="Object ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Class" Type="Edm.String" MaxLength="10" sap:unicode="false" sap:label="DocuClass" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Haschildren" Type="Edm.Boolean" sap:unicode="false" sap:label="Has Children" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -915,6 +921,7 @@
                     <PropertyRef Name="RunId"/>
                 </Key>
                 <Property Name="TestCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Case Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PickableFromTemplate" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Boolean Variable (X=True, -=False, Space=Unknown)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Package Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExecutionId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="TS Execution Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="RunId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="TS Run Id" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -943,15 +950,6 @@
                 <Property Name="FileName" Type="Edm.String" MaxLength="255" sap:unicode="false" sap:label="Char255" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Mimetype" Type="Edm.String" MaxLength="128" sap:unicode="false" sap:label="MIME type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Xdata" Type="Edm.Binary" sap:unicode="false" sap:label="Content RAW" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-            </EntityType>
-            <EntityType Name="DefectCreatedByUserList" sap:content-version="1">
-                <Key>
-                    <PropertyRef Name="UserId"/>
-                </Key>
-                <Property Name="FullName" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="UserId" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="User" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NameLast" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Last name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
-                <Property Name="NameFirst" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="First name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <EntityType Name="TestCaseChangeDoc" sap:content-version="1">
                 <Key>
@@ -1006,8 +1004,13 @@
                     <PropertyRef Name="Id"/>
                 </Key>
                 <Property Name="Id" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Structure ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="AttcAll" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fdate" Type="Edm.DateTime" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time Stamp" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CreatedAt" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Created At" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Ftime" Type="Edm.Time" Nullable="false" Precision="0" sap:unicode="false" sap:label="Time" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="Fuser" Type="Edm.String" Nullable="false" MaxLength="12" sap:unicode="false" sap:label="Changed by" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="LanguageKey" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="FuserFull" Type="Edm.String" Nullable="false" MaxLength="80" sap:unicode="false" sap:label="Full Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestPackageId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Package ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="TestCaseId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Case ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
@@ -1018,6 +1021,87 @@
                 <Property Name="Thumbvalue" Type="Edm.Binary" Nullable="false" sap:unicode="false" sap:label="Binary String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="ExecutionId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Test Execution ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
                 <Property Name="RunId" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Run" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DefectCategory" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="DefCatId"/>
+                </Key>
+                <Property Name="DefCatId" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="CategoryId" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefCatDescription" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CategoryDescription" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="BPListSendEmail" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BpId"/>
+                </Key>
+                <Property Name="BpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TstaRoot" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Character field, length 32" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BpName" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BP_NAME" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BpEmail" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="BP_EMAIL" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SendEmail" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="TstaRoot"/>
+                </Key>
+                <Property Name="Content" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="CONTENT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TstaRoot" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Character field, length 32" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Subject" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="SUBJECT" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UrlLink" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="URL_LINK" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="EmailToRecipient" Relationship="SALM_TM_TWL_SRV.Assoc_EmailToRecipient" FromRole="FromRole_Assoc_EmailToRecipient" ToRole="ToRole_Assoc_EmailToRecipient"/>
+            </EntityType>
+            <EntityType Name="BusinessPartnerIds" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="BpId"/>
+                </Key>
+                <Property Name="BpId" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="BusinessPartner" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TestCaseCustomizingStatus" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Langu" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StaAction" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Valuation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SortKey" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="Sort field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TwbStatusNoF4" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Not Selectable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TestFinished" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Test Ended" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvidenceNeeded" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Single-Character Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusIcon" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Status description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusTextColor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Valuation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusIconColor" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Valuation" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="TestStepCustomizingStatus" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DefaultStatus" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Default Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EvidenceReq" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Evidence Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Color" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="Color of Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lang" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusLabel" Type="Edm.String" Nullable="false" MaxLength="60" sap:unicode="false" sap:label="Label" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Finish" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Finish Step" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NotSelectable" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Not selectable" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="DefectStatus" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ProcessType"/>
+                    <PropertyRef Name="Status"/>
+                </Key>
+                <Property Name="ProcessType" Type="Edm.String" Nullable="false" MaxLength="4" sap:unicode="false" sap:label="Transaction Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ProcessTypeText" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Description" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Status" Type="Edm.String" Nullable="false" MaxLength="5" sap:unicode="false" sap:label="User status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StatusText" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="LanguageKeys" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Spras"/>
+                    <PropertyRef Name="Laiso"/>
+                    <PropertyRef Name="Sptxt"/>
+                </Key>
+                <Property Name="Spras" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Laiso" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Lang. (ISO)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sptxt" Type="Edm.String" Nullable="false" MaxLength="16" sap:unicode="false" sap:label="Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
             </EntityType>
             <Association Name="Assoc_DefectAttachment_Defect" sap:content-version="1">
                 <End Type="SALM_TM_TWL_SRV.Defect" Multiplicity="1" Role="FromRole_Assoc_DefectAttachment_Defect"/>
@@ -1040,16 +1124,16 @@
                 <End Type="SALM_TM_TWL_SRV.TestCaseTSRunCustField" Multiplicity="*" Role="ToRole_Assoc_TSCustField_TSRun"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Assoc_TSCustField_TSRun">
-                        <PropertyRef Name="RunId"/>
                         <PropertyRef Name="ExecutionId"/>
                         <PropertyRef Name="TestPackageId"/>
                         <PropertyRef Name="TestCaseId"/>
+                        <PropertyRef Name="RunId"/>
                     </Principal>
                     <Dependent Role="ToRole_Assoc_TSCustField_TSRun">
-                        <PropertyRef Name="RunId"/>
                         <PropertyRef Name="ExecutionId"/>
                         <PropertyRef Name="TestPackageId"/>
                         <PropertyRef Name="TestCaseId"/>
+                        <PropertyRef Name="RunId"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
@@ -1058,16 +1142,16 @@
                 <End Type="SALM_TM_TWL_SRV.TestCaseTSStep" Multiplicity="*" Role="ToRole_Assoc_TSStep_TSRun"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Assoc_TSStep_TSRun">
-                        <PropertyRef Name="RunId"/>
-                        <PropertyRef Name="ExecutionId"/>
-                        <PropertyRef Name="TestPackageId"/>
                         <PropertyRef Name="TestCaseId"/>
+                        <PropertyRef Name="TestPackageId"/>
+                        <PropertyRef Name="ExecutionId"/>
+                        <PropertyRef Name="RunId"/>
                     </Principal>
                     <Dependent Role="ToRole_Assoc_TSStep_TSRun">
-                        <PropertyRef Name="RunId"/>
-                        <PropertyRef Name="ExecutionId"/>
-                        <PropertyRef Name="TestPackageId"/>
                         <PropertyRef Name="TestCaseId"/>
+                        <PropertyRef Name="TestPackageId"/>
+                        <PropertyRef Name="ExecutionId"/>
+                        <PropertyRef Name="RunId"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
@@ -1222,14 +1306,14 @@
                 <End Type="SALM_TM_TWL_SRV.TestCaseResultDocument" Multiplicity="*" Role="ToRole_Assoc_TestCaseResultDoc_TestCaseResult"/>
                 <ReferentialConstraint>
                     <Principal Role="FromRole_Assoc_TestCaseResultDoc_TestCaseResult">
-                        <PropertyRef Name="TestCaseResultId"/>
                         <PropertyRef Name="TestCaseId"/>
                         <PropertyRef Name="TestPackageId"/>
+                        <PropertyRef Name="TestCaseResultId"/>
                     </Principal>
                     <Dependent Role="ToRole_Assoc_TestCaseResultDoc_TestCaseResult">
-                        <PropertyRef Name="TestCaseResultId"/>
                         <PropertyRef Name="TestCaseId"/>
                         <PropertyRef Name="TestPackageId"/>
+                        <PropertyRef Name="TestCaseResultId"/>
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
@@ -1301,6 +1385,10 @@
                     </Dependent>
                 </ReferentialConstraint>
             </Association>
+            <Association Name="Assoc_EmailToRecipient" sap:content-version="1">
+                <End Type="SALM_TM_TWL_SRV.SendEmail" Multiplicity="1" Role="FromRole_Assoc_EmailToRecipient"/>
+                <End Type="SALM_TM_TWL_SRV.BusinessPartnerIds" Multiplicity="*" Role="ToRole_Assoc_EmailToRecipient"/>
+            </Association>
             <Association Name="Assoc_DefectList_TestPackage" sap:content-version="1">
                 <End Type="SALM_TM_TWL_SRV.TestPackage" Multiplicity="1" Role="FromRole_Assoc_DefectList_TestPackage"/>
                 <End Type="SALM_TM_TWL_SRV.DefectList" Multiplicity="*" Role="ToRole_Assoc_DefectList_TestPackage"/>
@@ -1362,7 +1450,6 @@
                 </ReferentialConstraint>
             </Association>
             <EntityContainer Name="SALM_TM_TWL_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
-                <EntitySet Name="TestPackageTileCountSet" EntityType="SALM_TM_TWL_SRV.TestPackageTileCount" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="DefectSet" EntityType="SALM_TM_TWL_SRV.Defect" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseStatusActionSet" EntityType="SALM_TM_TWL_SRV.TestCaseStatusAction" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="DefectListSet" EntityType="SALM_TM_TWL_SRV.DefectList" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:requires-filter="true" sap:content-version="1"/>
@@ -1402,16 +1489,22 @@
                 <EntitySet Name="TestCaseExecutableSet" EntityType="SALM_TM_TWL_SRV.TestCaseExecutable" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <EntitySet Name="SystemLanguageValuesSet" EntityType="SALM_TM_TWL_SRV.SystemLanguageValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCasePriorityValuesSet" EntityType="SALM_TM_TWL_SRV.TestCasePriorityValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="TestPlanValuesSet" EntityType="SALM_TM_TWL_SRV.TestPlanValues" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseTSStepSet" EntityType="SALM_TM_TWL_SRV.TestCaseTSStep" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseTSExecutionSet" EntityType="SALM_TM_TWL_SRV.TestCaseTSExecution" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseTSRunSet" EntityType="SALM_TM_TWL_SRV.TestCaseTSRun" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseTSStepEvidenceSet" EntityType="SALM_TM_TWL_SRV.TestCaseTSStepEvidence" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
-                <EntitySet Name="DefectCreatedByUserListSet" EntityType="SALM_TM_TWL_SRV.DefectCreatedByUserList" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseChangeDocSet" EntityType="SALM_TM_TWL_SRV.TestCaseChangeDoc" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="DigSignatureAuthorizationGroupsSet" EntityType="SALM_TM_TWL_SRV.DigSignatureAuthorizationGroups" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="UserPersonalizationSet" EntityType="SALM_TM_TWL_SRV.UserPersonalization" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
                 <EntitySet Name="TestCaseAttachmentSet" EntityType="SALM_TM_TWL_SRV.TestCaseAttachment" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="DefectCategorySet" EntityType="SALM_TM_TWL_SRV.DefectCategory" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BPListSendEmailSet" EntityType="SALM_TM_TWL_SRV.BPListSendEmail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SendEmailSet" EntityType="SALM_TM_TWL_SRV.SendEmail" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="BusinessPartnerIdsSet" EntityType="SALM_TM_TWL_SRV.BusinessPartnerIds" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TestCaseCustomizingStatusSet" EntityType="SALM_TM_TWL_SRV.TestCaseCustomizingStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="TestStepCustomizingStatusSet" EntityType="SALM_TM_TWL_SRV.TestStepCustomizingStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="DefectStatusSet" EntityType="SALM_TM_TWL_SRV.DefectStatus" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="LanguageKeysSet" EntityType="SALM_TM_TWL_SRV.LanguageKeys" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
                 <AssociationSet Name="Assoc_TestCase_TestPackage_AssocSet" Association="SALM_TM_TWL_SRV.Assoc_TestCase_TestPackage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="TestPackageSet" Role="FromRole_Assoc_TestCase_TestPackage"/>
                     <End EntitySet="TestCaseSet" Role="ToRole_Assoc_TestCase_TestPackage"/>
@@ -1431,6 +1524,10 @@
                 <AssociationSet Name="Assoc_TSStep_TestCase_AssocSet" Association="SALM_TM_TWL_SRV.Assoc_TSStep_TestCase" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="TestCaseSet" Role="FromRole_Assoc_TSStep_TestCase"/>
                     <End EntitySet="TestCaseTSStepSet" Role="ToRole_Assoc_TSStep_TestCase"/>
+                </AssociationSet>
+                <AssociationSet Name="Assoc_EmailToRecipientSet" Association="SALM_TM_TWL_SRV.Assoc_EmailToRecipient" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SendEmailSet" Role="FromRole_Assoc_EmailToRecipient"/>
+                    <End EntitySet="BusinessPartnerIdsSet" Role="ToRole_Assoc_EmailToRecipient"/>
                 </AssociationSet>
                 <AssociationSet Name="Assoc_TestCaseExecutable_TestCase_AssocS" Association="SALM_TM_TWL_SRV.Assoc_TestCaseExecutable_TestCase" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
                     <End EntitySet="TestCaseSet" Role="FromRole_Assoc_TestCaseExecutable_TestCase"/>
@@ -1517,34 +1614,34 @@
                     <End EntitySet="TestCaseTSExecutionSet" Role="ToRole_Assoc_TSExecution_TestCase"/>
                 </AssociationSet>
                 <FunctionImport Name="AssignDefectToTestCase" ReturnType="SALM_TM_TWL_SRV.TestCase" EntitySet="TestCaseSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCase">
-                    <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="DefectId" Type="Edm.String" Mode="In" MaxLength="24"/>
-                    <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="ExecutionId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="RunId" Type="Edm.Int16" Mode="In"/>
                     <Parameter Name="StepId" Type="Edm.Int16" Mode="In"/>
+                    <Parameter Name="RunId" Type="Edm.Int16" Mode="In"/>
+                    <Parameter Name="ExecutionId" Type="Edm.String" Mode="In" MaxLength="32"/>
+                    <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
+                    <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
+                    <Parameter Name="DefectId" Type="Edm.String" Mode="In" MaxLength="24"/>
                 </FunctionImport>
                 <FunctionImport Name="UnassignDefectFromTestCase" ReturnType="SALM_TM_TWL_SRV.TestCase" EntitySet="TestCaseSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCase">
+                    <Parameter Name="StepId" Type="Edm.Int16" Mode="In"/>
+                    <Parameter Name="RunId" Type="Edm.Int16" Mode="In"/>
+                    <Parameter Name="ExecutionId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="DefectId" Type="Edm.String" Mode="In" MaxLength="24"/>
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="ExecutionId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="RunId" Type="Edm.Int16" Mode="In"/>
-                    <Parameter Name="StepId" Type="Edm.Int16" Mode="In"/>
                 </FunctionImport>
                 <FunctionImport Name="CreateTestNoteFromTemplate" ReturnType="SALM_TM_TWL_SRV.TestCaseNote" EntitySet="TestCaseNoteSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseNote">
+                    <Parameter Name="Overwrite" Type="Edm.Boolean" Mode="In"/>
                     <Parameter Name="Language" Type="Edm.String" Mode="In" MaxLength="2"/>
                     <Parameter Name="DocStatus" Type="Edm.String" Mode="In" MaxLength="15"/>
                     <Parameter Name="Title" Type="Edm.String" Mode="In" MaxLength="75"/>
                     <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="Overwrite" Type="Edm.Boolean" Mode="In"/>
                 </FunctionImport>
                 <FunctionImport Name="CreateTestNoteFromTestDocument" ReturnType="SALM_TM_TWL_SRV.TestCaseNote" EntitySet="TestCaseNoteSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseNote">
+                    <Parameter Name="Overwrite" Type="Edm.Boolean" Mode="In"/>
                     <Parameter Name="Title" Type="Edm.String" Mode="In" MaxLength="75"/>
                     <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="Overwrite" Type="Edm.Boolean" Mode="In"/>
                 </FunctionImport>
                 <FunctionImport Name="DeleteTSStepEvidence" ReturnType="SALM_TM_TWL_SRV.TestCaseTSStep" EntitySet="TestCaseTSStepSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseTSStepEvidence">
                     <Parameter Name="StepId" Type="Edm.Int32" Mode="In"/>
@@ -1583,41 +1680,36 @@
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
                 </FunctionImport>
                 <FunctionImport Name="CreateTestNoteFromURL" ReturnType="SALM_TM_TWL_SRV.TestCaseNote" EntitySet="TestCaseNoteSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseNote">
+                    <Parameter Name="Overwrite" Type="Edm.Boolean" Mode="In"/>
+                    <Parameter Name="Title" Type="Edm.String" Mode="In" MaxLength="75"/>
+                    <Parameter Name="Language" Type="Edm.String" Mode="In" MaxLength="2"/>
+                    <Parameter Name="DocStatus" Type="Edm.String" Mode="In" MaxLength="15"/>
                     <Parameter Name="TestNoteUrl" Type="Edm.String" Mode="In"/>
                     <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="DocStatus" Type="Edm.String" Mode="In" MaxLength="15"/>
-                    <Parameter Name="Language" Type="Edm.String" Mode="In" MaxLength="2"/>
-                    <Parameter Name="Title" Type="Edm.String" Mode="In" MaxLength="75"/>
-                    <Parameter Name="Overwrite" Type="Edm.Boolean" Mode="In"/>
                 </FunctionImport>
                 <FunctionImport Name="CreateTestResultFromURL" ReturnType="Collection(SALM_TM_TWL_SRV.TestCaseResult)" EntitySet="TestCaseResultSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseResult">
-                    <Parameter Name="TestResultURL" Type="Edm.String" Mode="In"/>
-                    <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="Language" Type="Edm.String" Mode="In" MaxLength="2"/>
-                    <Parameter Name="DocStatus" Type="Edm.String" Mode="In" MaxLength="15"/>
                     <Parameter Name="Title" Type="Edm.String" Mode="In" MaxLength="75"/>
-                </FunctionImport>
-                <FunctionImport Name="CreateTSExecution" ReturnType="SALM_TM_TWL_SRV.TestCaseTSExecution" EntitySet="TestCaseTSExecutionSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseTSExecution">
-                    <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                    <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
-                </FunctionImport>
-                <FunctionImport Name="CreateMultipleTestCaseResults" ReturnType="Collection(SALM_TM_TWL_SRV.TestCaseResult)" EntitySet="TestCaseResultSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseResult">
-                    <Parameter Name="NumberOfIds" Type="Edm.Int32" Mode="In"/>
+                    <Parameter Name="DocStatus" Type="Edm.String" Mode="In" MaxLength="15"/>
+                    <Parameter Name="Language" Type="Edm.String" Mode="In" MaxLength="2"/>
+                    <Parameter Name="TestResultURL" Type="Edm.String" Mode="In"/>
                     <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
                 </FunctionImport>
                 <FunctionImport Name="CreateTestResultFromTemplate" ReturnType="Collection(SALM_TM_TWL_SRV.TestCaseResult)" EntitySet="TestCaseResultSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCaseResult">
+                    <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
+                    <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="Title" Type="Edm.String" Mode="In" MaxLength="75"/>
                     <Parameter Name="Language" Type="Edm.String" Mode="In" MaxLength="2"/>
                     <Parameter Name="DocStatus" Type="Edm.String" Mode="In" MaxLength="15"/>
+                </FunctionImport>
+                <FunctionImport Name="CheckTestEnded" ReturnType="SALM_TM_TWL_SRV.TestCase" EntitySet="TestCaseSet" m:HttpMethod="GET" sap:action-for="SALM_TM_TWL_SRV.TestCase">
                     <Parameter Name="TestPackageId" Type="Edm.String" Mode="In" MaxLength="32"/>
                     <Parameter Name="TestCaseId" Type="Edm.String" Mode="In" MaxLength="32"/>
                 </FunctionImport>
             </EntityContainer>
-            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="https://smrci10.worldbank.org:51001/sap/opu/odata/SALM/TM_TWL_SRV/$metadata"/>
-            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="https://smrci10.worldbank.org:51001/sap/opu/odata/SALM/TM_TWL_SRV/$metadata"/>
+            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="/sap/opu/odata/SALM/TM_TWL_SRV/$metadata"/>
+            <atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="/sap/opu/odata/SALM/TM_TWL_SRV/$metadata"/>
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>
