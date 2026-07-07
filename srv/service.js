@@ -117,7 +117,7 @@ module.exports = async (srv) => {
     }
 
     const key = `TestCaseId='${escapeODataString(testCaseId)}',TestPackageId='${escapeODataString(testPackageId)}'`
-    const path = `/TestCaseSet(${key})?$expand=toDefectSet($select=${REMOTE_COLUMNS.join(',')})`
+    const path = `/TestCaseSet(${key})?$expand=toDefectSet`
     const result = await remoteService.send({ method: 'GET', path })
     let defects = extractExpandedDefects(result)
 
@@ -128,6 +128,10 @@ module.exports = async (srv) => {
     if (defectId) {
       defects = defects.filter(defect => defect.DefectId === defectId)
     }
+
+    defects = defects.filter(
+      defect => defect.TestPackageId === testPackageId && defect.TestCaseId === testCaseId
+    )
 
     const mappedDefects = defects.slice(0, 5).map(toLocalDefect)
 
