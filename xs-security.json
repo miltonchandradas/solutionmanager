@@ -1,0 +1,13 @@
+{
+   "xsappname": "solution_manager-ARIA-BAS-SPACE",
+  "tenant-mode": "dedicated",
+  "scopes": [],
+  "attributes": [],
+  "role-templates": [],
+    "oauth2-configuration": {
+    "redirect-uris": [
+      "https://oauth.pstmn.io/v1/browser-callback",
+      "https://*.cfapps.us21.hana.ondemand.com/**"
+    ]
+  }
+}
