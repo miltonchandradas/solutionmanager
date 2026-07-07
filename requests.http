@@ -1,6 +1,11 @@
 @baseUrl = http://localhost:4004
 @testPackageId = REPLACE_TEST_PACKAGE_ID
+@testCaseId = REPLACE_TEST_CASE_ID
 
 ### Get Defects
-GET {{baseUrl}}/service/solutionmanager/Defects?$filter=testPackageId eq '{{testPackageId}}'
+GET {{baseUrl}}/service/solutionmanager/Defects?$filter=testPackageId eq '{{testPackageId}}' and testCaseId eq '{{testCaseId}}'
+Accept: application/json
+
+### Get Defect By ID
+GET {{baseUrl}}/service/solutionmanager/Defects?$filter=defectId eq 'REPLACE_DEFECT_ID'
 Accept: application/json

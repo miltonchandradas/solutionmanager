@@ -31,8 +31,13 @@ module.exports = async (srv) => {
     const testCaseId = readFilterValue(where, 'testCaseId')
     const defectId = readFilterValue(where, 'defectId')
 
-    if (!testPackageId && !testCaseId && !defectId) {
-      return req.reject(400, 'Defects requires at least one filter: defectId, testPackageId, or testCaseId.')
+    const hasNarrowFilter = Boolean(defectId || (testPackageId && testCaseId))
+
+    if (!hasNarrowFilter) {
+      return req.reject(
+        400,
+        'Defects requires either defectId, or both testPackageId and testCaseId. testPackageId alone is too broad for the backend.'
+      )
     }
 
     const query = { ...req.query, SELECT: { ...req.query.SELECT } }
