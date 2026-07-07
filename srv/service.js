@@ -118,8 +118,37 @@ const toLocalDefect = defect => ({
   statusText: defect.StatusText
 })
 
+const toLocalPackage = testPackage => ({
+  testPackageId: testPackage.TestPackageId,
+  name: testPackage.TestPackageName,
+  title: testPackage.TestPackageTitle,
+  contact: testPackage.TestPackageResponsible,
+  endDate: testPackage.PlanPlannedEndDate,
+  startDate: testPackage.PlanPlannedStartDate
+})
+
 module.exports = async (srv) => {
   const remoteService = await cds.connect.to('SALM_TM_TWL_SRV')
+
+  srv.on('READ', 'Packages', async req => {
+    const where = req.query.SELECT?.where
+    const testPackageId = readFilterValue(where, 'testPackageId')
+    const queryParts = ['$format=json']
+
+    if (testPackageId) {
+      queryParts.push(`$filter=TestPackageId eq '${escapeODataString(testPackageId)}'`)
+    }
+
+    const path = `/TestPackageSet?${queryParts.join('&')}`
+    const result = await remoteService.send({ method: 'GET', path })
+    const packages = normalizeResult(result).map(toLocalPackage)
+
+    if (req.query.SELECT?.one) {
+      return packages[0]
+    }
+
+    return packages
+  })
 
   srv.on('READ', 'Defects', async req => {
     const where = req.query.SELECT?.where

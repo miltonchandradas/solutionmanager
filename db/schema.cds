@@ -22,6 +22,6 @@ entity Packages as
             TestPackageTitle       as title,
             TestPackageResponsible as contact,
             PlanPlannedEndDate     as endDate,
-            PlanPlannedStartDate   as startDate,
+            PlanPlannedStartDate   as startDate
 
     }
