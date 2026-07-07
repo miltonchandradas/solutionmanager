@@ -40,12 +40,50 @@ const normalizeResult = result => {
     return result
   }
 
+  if (Array.isArray(result?.results)) {
+    return result.results
+  }
+
   if (Array.isArray(result?.value)) {
     return result.value
   }
 
+  if (Array.isArray(result?.data)) {
+    return result.data
+  }
+
+  if (Array.isArray(result?.data?.results)) {
+    return result.data.results
+  }
+
+  if (Array.isArray(result?.data?.value)) {
+    return result.data.value
+  }
+
   if (Array.isArray(result?.d?.results)) {
     return result.d.results
+  }
+
+  if (Array.isArray(result?.data?.d?.results)) {
+    return result.data.d.results
+  }
+
+  return []
+}
+
+const extractExpandedDefects = result => {
+  const testCase = result?.d ?? result?.data?.d ?? result?.data ?? result
+
+  if (Array.isArray(testCase?.toDefectSet?.results)) {
+    return testCase.toDefectSet.results
+  }
+
+  if (Array.isArray(testCase?.toDefectSet)) {
+    return testCase.toDefectSet
+  }
+
+  if (Array.isArray(testCase?.toDefectSet?.value)) {
+    return testCase.toDefectSet.value
   }
 
   return []
@@ -79,15 +117,25 @@ module.exports = async (srv) => {
     }
 
     const key = `TestCaseId='${escapeODataString(testCaseId)}',TestPackageId='${escapeODataString(testPackageId)}'`
-    const queryParts = [`$select=${REMOTE_COLUMNS.join(',')}`]
+    const path = `/TestCaseSet(${key})?$expand=toDefectSet($select=${REMOTE_COLUMNS.join(',')})`
+    const result = await remoteService.send({ method: 'GET', path })
+    let defects = extractExpandedDefects(result)
 
-    if (defectId) {
-      queryParts.push(`$filter=DefectId eq '${escapeODataString(defectId)}'`)
+    if (!defects.length) {
+      defects = normalizeResult(result)
     }
 
-    const path = `/TestCaseSet(${key})/toDefectSet?${queryParts.join('&')}`
-    const result = await remoteService.send({ method: 'GET', path })
-    const mappedDefects = normalizeResult(result).slice(0, 5).map(toLocalDefect)
+    if (defectId) {
+      defects = defects.filter(defect => defect.DefectId === defectId)
+    }
+
+    const mappedDefects = defects.slice(0, 5).map(toLocalDefect)
+
+    console.info('Resolved Defects remote call', {
+      path,
+      rawResultKeys: result && typeof result === 'object' ? Object.keys(result) : [],
+      rowCount: defects.length
+    })
 
     if (req.query.SELECT?.one) {
       return mappedDefects[0]
