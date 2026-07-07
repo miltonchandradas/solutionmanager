@@ -1,0 +1,1 @@
+cds import srv/external/SALM_TM_TWL_SRV.xml --as cds
