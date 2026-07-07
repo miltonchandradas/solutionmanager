@@ -30,7 +30,7 @@
         }
       },
       "[production]": {
-        "auth": "xsuaa"
+        "auth": "dummy"
       }
     }
   }
