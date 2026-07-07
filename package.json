@@ -21,7 +21,13 @@
       "db": false,
       "SALM_TM_TWL_SRV": {
         "kind": "odata-v2",
-        "model": "srv/external/SALM_TM_TWL_SRV"
+        "model": "srv/external/SALM_TM_TWL_SRV",
+        "[production]": {
+          "credentials": {
+            "destination": "Solman_Prod",
+            "path": "/sap/opu/odata/SALM/TM_TWL_SRV"
+          }
+        }
       },
       "[production]": {
         "auth": "xsuaa"
