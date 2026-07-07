@@ -8,5 +8,5 @@ GET {{baseUrl}}/service/solutionmanager/Defects?$filter=testPackageId eq '{{test
 Accept: application/json
 
 ### Get Defect By ID
-GET {{baseUrl}}/service/solutionmanager/Defects?$filter=defectId eq '{{defectId}}'
+GET {{baseUrl}}/service/solutionmanager/Defects?$filter=testPackageId eq '{{testPackageId}}' and testCaseId eq '{{testCaseId}}' and defectId eq '{{defectId}}'
 Accept: application/json
