@@ -35,6 +35,19 @@ const readFilterValue = (where, fieldName) => {
 
 const escapeODataString = value => String(value).replace(/'/g, "''")
 
+const toRelativeODataPath = deferredUri => {
+  if (!deferredUri) {
+    return undefined
+  }
+
+  if (deferredUri.startsWith('/')) {
+    return deferredUri
+  }
+
+  const parsedUrl = new URL(deferredUri)
+  return `${parsedUrl.pathname}${parsedUrl.search}`
+}
+
 const normalizeResult = result => {
   if (Array.isArray(result)) {
     return result
@@ -89,6 +102,11 @@ const extractExpandedDefects = result => {
   return []
 }
 
+const extractDeferredDefectPath = result => {
+  const testCase = result?.d ?? result?.data?.d ?? result?.data ?? result
+  return toRelativeODataPath(testCase?.toDefectSet?.__deferred?.uri)
+}
+
 const toLocalDefect = defect => ({
   defectId: defect.DefectId,
   testPackageId: defect.TestPackageId,
@@ -117,12 +135,21 @@ module.exports = async (srv) => {
     }
 
     const key = `TestCaseId='${escapeODataString(testCaseId)}',TestPackageId='${escapeODataString(testPackageId)}'`
-    const path = `/TestCaseSet(${key})?$expand=toDefectSet`
-    const result = await remoteService.send({ method: 'GET', path })
-    let defects = extractExpandedDefects(result)
+    const testCasePath = `/TestCaseSet(${key})?$format=json`
+    const testCaseResult = await remoteService.send({ method: 'GET', path: testCasePath })
+    const deferredDefectPath = extractDeferredDefectPath(testCaseResult)
+
+    if (!deferredDefectPath) {
+      return []
+    }
+
+    const separator = deferredDefectPath.includes('?') ? '&' : '?'
+    const defectPath = `${deferredDefectPath}${separator}$format=json`
+    const defectResult = await remoteService.send({ method: 'GET', path: defectPath })
+    let defects = normalizeResult(defectResult)
 
     if (!defects.length) {
-      defects = normalizeResult(result)
+      defects = extractExpandedDefects(defectResult)
     }
 
     if (defectId) {
@@ -136,8 +163,9 @@ module.exports = async (srv) => {
     const mappedDefects = defects.slice(0, 5).map(toLocalDefect)
 
     console.info('Resolved Defects remote call', {
-      path,
-      rawResultKeys: result && typeof result === 'object' ? Object.keys(result) : [],
+      testCasePath,
+      deferredDefectPath,
+      rawResultKeys: defectResult && typeof defectResult === 'object' ? Object.keys(defectResult) : [],
       rowCount: defects.length
     })
 
